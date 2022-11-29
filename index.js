@@ -1,5 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
+require('dotenv').config();
+const { PORT } = require('./config')
+
 
 const app = express()
 
@@ -14,8 +17,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/payments', require('./routes/payments.routes'));
 
-
-const PORT = 5000 || process.env.PORT
 
 app.listen(PORT, () => {
     console.log(`Sever on port ${PORT}`)
